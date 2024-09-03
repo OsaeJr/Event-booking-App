@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+{% if user.is_authenticated %}
+<center>
+  
+
+<div class="card">
+    <div class="card-header">
+      <strong>{{venue}}</strong> 
+    </div>
+    <div class="card-body">
+    <p class="card-text" style = "margin: 0; padding: 0;">
+        <strong>Address:</strong> {{venue.address}}<br>
+        <strong>Zip Code:</strong> {{venue.zip_code}}<br>
+    <strong>Phone_number:</strong> {{venue.phone_number}}<br>
+<strong>Web:</strong> {{venue.web}}<br>
+<strong>email_address:</strong> {{venue.email_address}}<br>
+<strong>Venue Owner:</strong> {{venue_owner}}<br>
+
+{% if venue.venue_image %}
+
+<img src = "{{venue.venue_image.url }}" width = 500>
+
+{% endif %}
+
+      </p>
+    </div>
+
+</center>
+{% else %}
+<h1> You have to be logged in to access this page</h1>
+
+{% endif %}
+
+{% endblock %}

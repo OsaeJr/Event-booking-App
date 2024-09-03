@@ -1,0 +1,7 @@
+.extended-input {
+    width: 300px; /* Adjust the width as needed */
+    padding: 10px; /* Add padding to create space inside the input boxes */
+    margin-bottom: 15px; /* Add margin to create space between the input boxes */
+    border: 1px solid #ccc; /* Add a border to the input boxes */
+    border-radius: 5px; /* Add rounded corners to the input boxes */
+  }

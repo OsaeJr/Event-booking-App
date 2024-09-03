@@ -1,0 +1,33 @@
+{% extends "base.html "%}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<center>
+<h1>Add Venue To Database</h2>
+ 
+ {% if submitted %}
+    <h2>Your venue is submitted</h2>
+
+ {% else %}
+<form action = "" method = "POST" enctype = "multipart/form-data"> <br>
+    {% csrf_token %}
+    {{form.as_p}}
+   <input type = "submit" class="btn btn-primary">
+</form>
+</center>
+{% endif %}
+
+
+{% else %}
+<h1> You have to be logged in to access this page</h1>
+
+{% endif %}
+
+        <script src="" async defer></script>
+    </body>
+  
+
+{% endblock%}
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+{% if user.is_authenticated %}
+<h1> Update Venue </h1>
+<form action = "" method = "POST" enctype = "multipart/form-data"> <br>
+    {% csrf_token %}
+    {{form.as_p}}
+   <input type = "submit" value = "Update" class="btn btn-secondary">
+</form>
+
+{% else %}
+<h1> You have to be logged in to access this page</h1>
+
+{% endif %}
+
+    
+
+{% endblock  %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+{% if user.is_authenticated %}
+{% if user == event.manager %}
+<form action = "" method = "POST">
+    <h1> Update Event </h1>
+    {% csrf_token %}
+    {{form.as_p}}
+   <input type = "submit" class="btn btn-secondary">
+</form>
+{% else %}
+<h2> Sorry, you are not the manager and cannot update this event </h2>
+Logged In User: {{ user }}
+<br>
+Event Manager: {{event.manager}}
+<br>
+{% endif %}
+
+
+{% else %}
+<h1> You have to be logged in to access this page</h1>
+
+{% endif %}
+
+
+
+
+{% endblock  %}

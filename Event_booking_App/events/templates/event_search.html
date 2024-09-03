@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+
+<form role="search" method = "post" action = "event_search">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Search Event" aria-label="Search" name = "searched"><br>
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  {% if searched %}
+  {% if events %}
+      {% for event in events %}
+          <br>      
+          <div class="card">
+              <div class="card-header">
+                  <strong>{{ event.name }}</strong> <!-- Display event name -->
+              </div>
+              <div class="card-body">
+                  <strong>Venue:</strong> {{ event.venue }}<br>
+                  <p class="card-text">
+                      <strong>Date:</strong> {{ event.event_date }}<br>
+                      <strong>Manager:</strong> {{ event.manager }}<br>
+                      <strong>Description:</strong> {{ event.description }}<br>
+                      <strong>Attendee(s):</strong>
+                      <ul>
+                          {% for attendee in event.attendee.all %}
+                              <li>{{ attendee }}</li>
+                          {% endfor %}
+                      </ul>
+                  </p>  
+              </div>
+              {% if user.is_authenticated %}
+                  {% if user == event.manager %}
+                      <div class="card-footer text-body-secondary">
+                          <a href="{% url 'update_event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
+                          <a href="{% url 'delete_event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>
+                      </div>
+                  {% endif %}
+              {% else %}
+                  <div class="card-footer text-body-secondary">
+                      <h2>{{ event.name }} not found</h2> <!-- Display event name here too -->
+                  </div>
+              {% endif %}
+          </div>
+          <br><br>
+      {% endfor %}
+  {% else %}
+      <h1>{{ searched }} not found</h1>
+  {% endif %}
+{% else %}
+  <h1>You forgot to search</h1>
+{% endif %}
+
+
+
+
+
+{% endblock  %}

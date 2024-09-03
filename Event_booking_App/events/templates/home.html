@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+<center>
+<h1>I am {{name}}, i was born on {{day}} {{month}}, {{year}} </h1>
+
+<h1>{{ month_number }}
+
+<h1>{{cal|safe}} </h1><br><br><br><br><br><br>
+
+{{now}}<br>
+
+</center>
+
+{% endblock  %}

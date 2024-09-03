@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{%  block content  %}
+
+<div class= "shadow p-4 mb-5 bg-body rounded">
+<h1>Events</h1>
+
+{% for event  in event_list %}
+{% if event.approved %}
+<div class="card">
+    <div class="card-header">
+      <strong>{{event}}</strong> 
+    </div>
+    <div class="card-body">
+      <strong>Venue:</strong> {{event.venue}}<br>
+      <p class="card-text" style = "margin: 0; padding: 0;">
+        <strong>Date:</strong> {{event.event_date}}<br>
+        <strong>Days Till Event:</strong> {{event.Days_till}}<br>
+    <strong>Manager:</strong> {{event.manager}}<br>
+<strong>Description:</strong> {{event.description}}<br>
+<strong>Approved:</strong> {{event.approved}}<br>
+<strong>Attendee(s):</strong>
+    {% for attendee in event.attendee.all %}
+    <ul style = "margin:0;">
+    <li>{{attendee}}</li>
+    </ul>
+    {% endfor %}
+
+
+
+      </p>
+     
+    </div>
+    {% if user.is_authenticated %}
+    {% if user == event.manager %}
+    <div class="card-footer text-body-secondary">
+      <a href = "{% url 'update_event' event.id %}" class =  "btn btn-outline-secondary btn-sm"> Update Event </a>
+      <a href = "{% url 'delete_event' event.id %}" class =  "btn btn-outline-danger btn-sm"> Delete Event </a>
+    </div>
+ 
+  {% endif %}
+  {% endif %}
+  {% endif %}
+</div>
+
+<br><br>
+{% endfor %}
+
+
+
+
+
+
+{% endblock  %}
