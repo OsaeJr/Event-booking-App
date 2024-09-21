@@ -1,15 +1,16 @@
-Project Overview
+PROJECT OVERVIEW
+
 The Event Booking App allows users to create, manage, and attend events. This project includes features for event organizers, system administrators, and venue owners, making it easier to schedule events, manage venues, and track attendee registration.
 
-Features
+FEATURES
+
 Event Organizers: Create, edit, and manage events. Track attendee registrations and view event details.
 
 System Administrators: Manage user accounts and approve or reject events. View reports on platform activity.
 
 Venue Owners: List and manage venues, allowing event organizers to book them for events.
 
-
-Technologies Used
+TECHNOLOGIES USED
 
 Frontend: HTML, Bootstrap
 
@@ -19,7 +20,8 @@ Database: SQLite
 
 Version Control: Git and GitHub
 
-Usage
+USAGE
+
 Event organizers can create, edit, and delete events.
 
 Administrators can manage users and approve events.
@@ -27,14 +29,15 @@ Administrators can manage users and approve events.
 Venue owners can list and manage venues for booking.
 
 
-Future Improvements
+FUTURE IMPROVEMENTS
+
 Integration of payment processing for event bookings.
 
 Adding user notifications and reminders for events.
 
 Mobile app version for iOS and Android.
 
-License
+LINCENSE
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
